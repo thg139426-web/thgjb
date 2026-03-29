@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THGJB</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, sans-serif;
+  background: linear-gradient(180deg, #0a1f44, #001233);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor */
+.app {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  background: red;
+  padding: 10px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Texto estado */
+.status {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Barra progreso */
+.progress {
+  margin-top: 20px;
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  width: 0%;
+  background: #00ffcc;
+  transition: width 0.5s;
+}
+
+/* Botón */
+button {
+  margin-top: 30px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #007aff;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* Lista gestores */
+.managers {
+  text-align: left;
+  margin-top: 20px;
+}
+
+.managers label {
+  display: block;
+  margin: 8px 0;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .logo { font-size: 32px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+  <div class="logo">THGJB</div>
+
+  <div class="status" id="status">
+    Selecciona gestores de paquetes
+  </div>
+
+  <div class="managers">
+    <label><input type="checkbox" checked> Cydia</label>
+    <label><input type="checkbox" checked> Sileo</label>
+    <label><input type="checkbox" checked> Zebra</label>
+    <label><input type="checkbox"> Saily</label>
+  </div>
+
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <button onclick="startJailbreak()">Jailbreak</button>
+
+</div>
+
+<script>
+function startJailbreak() {
+
+  const status = document.getElementById("status");
+  const bar = document.getElementById("bar");
+
+  let steps = [
+    "Preparing environment...",
+    "Running exploit...",
+    "Patching kernel...",
+    "Installing package managers...",
+    "Finalizing jailbreak..."
+  ];
+
+  let progress = 0;
+  let i = 0;
+
+  let interval = setInterval(() => {
+
+    if (i < steps.length) {
+      status.innerText = steps[i];
+      progress += 20;
+      bar.style.width = progress + "%";
+      i++;
+    } else {
+      clearInterval(interval);
+      status.innerText = "✅ Jailbreak Completed";
+    }
+
+  }, 1500);
+}
+</script>
+
+</body>
+</html>
+<button onclick="instalar()">Instalar App</button>
+
+<script>
+function instalar() {
+  window.location.href = "https://tu-link.com/app.ipa";
+}
+</script>
