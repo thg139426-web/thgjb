@@ -156,3 +156,29 @@ function instalar() {
   window.location.href = "https://tu-link.com/app.ipa";
 }
 </script>
+<h2>Gestores de Paquetes</h2>
+
+<button onclick="openManager('cydia')">Cydia</button>
+<button onclick="openManager('sileo')">Sileo</button>
+<button onclick="openManager('zebra')">Zebra</button>
+<button onclick="openManager('saily')">Saily</button>
+<button onclick="openManager('apptapp')">AppTapp Installer</button>
+
+<script>
+function openManager(app) {
+
+  if (app === "cydia") {
+    alert("Cydia no está disponible todavía.\nDisponible el 10 de junio de 2026 ⏳");
+    return;
+  }
+
+  let messages = {
+    "sileo": "Sileo requiere jailbreak (ej: Dopamine)",
+    "zebra": "Zebra requiere jailbreak",
+    "saily": "Saily requiere jailbreak",
+    "apptapp": "AppTapp es antiguo y no compatible con iOS moderno"
+  };
+
+  alert(messages[app] || "No disponible");
+}
+</script>
